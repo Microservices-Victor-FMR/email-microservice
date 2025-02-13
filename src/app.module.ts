@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
@@ -7,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: ['.env.development', '.env.production'],
       isGlobal: true,
     }),
+    EmailModule,
   ],
   controllers: [],
   providers: [],
