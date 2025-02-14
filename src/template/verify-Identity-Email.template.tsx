@@ -49,7 +49,7 @@ export function VerifyAccountEmail({
             </Text>
             <Section className="text-center mt-4">
               <Link
-                href={`http://localhost:1000/api/auth/verify-account?token=${token}`}
+                href={`${process.env.VERIFY_IDENTITY_TOKEN_URL}${token}`}
                 className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md"
               >
                 Verify Your Account

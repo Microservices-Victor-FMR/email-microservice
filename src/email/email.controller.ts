@@ -13,6 +13,15 @@ export class EmailController {
     const result = await this.emailService.registerEmail(name,email,token);
    return result
   }
+
+  @EventPattern('user_resend_email')
+  async resendVerifyEmail(@Payload() payload: any) {
+    const{ name,email,token}= payload
+    const result = await this.emailService.resendEmail(name,email,token);
+   return result
+  }
+
+  
 }
 
 
