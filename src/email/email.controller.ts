@@ -8,7 +8,7 @@ export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @EventPattern('user_created')
-  async resendEmail(@Payload() payload: any) {
+  async sendVerifyEmail(@Payload() payload: any) {
     const{ name,email,token}= payload
     const result = await this.emailService.registerEmail(name,email,token);
    return result

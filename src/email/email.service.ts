@@ -13,9 +13,10 @@ export class EmailService {
   }
 
   async registerEmail(name:string,email:string, token: string) {
+    const TO_EMAIL=  this.configService.get<string>('TO_EMAIL')
     const verifyAccountEmail = await render(VerifyAccountEmail({name:name,token}));
     const data = await this.resend.emails.send({
-      to: 'victormartinezbusiness30@gmail.com',
+      to: TO_EMAIL,
       from: 'ECOMMERCE <onboarding@resend.dev>',
       replyTo: 'you@example.com',
       subject: 'Welcome',
