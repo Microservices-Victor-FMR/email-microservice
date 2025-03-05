@@ -21,6 +21,13 @@ export class EmailController {
    return result
   }
 
+  @EventPattern('changed_email')
+  async changedEmailToken(@Payload() payload: any) {
+    const{ name,email,token}= payload
+    const result = await this.emailService.updateEmail(name,email,token);
+   return result
+  }
+
   
 }
 
